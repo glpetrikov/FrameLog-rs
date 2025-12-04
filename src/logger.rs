@@ -31,16 +31,17 @@ impl Logger {
     pub fn warn(message: &str){
         println!("{}", message.yellow());
     }
-    /// error print a yellow message to the console, does not support formatting
+    /// error print a red message to the console, does not support formatting
     pub fn error(message: &str){
         println!("{}", message.red());
     }
-    /// fatal error a yellow message to the console, does not support formatting
+    /// fatal error a bright red message to the console, does not support formatting
     pub fn fatal(message: &str){
         println!("{}", message.bright_red());
     }
 }
 
+/// trace a gray message to the console, support formatting
 #[macro_export]
 macro_rules! trace {
     ($($arg:tt)*) => {
@@ -48,6 +49,7 @@ macro_rules! trace {
     };
 }
 
+/// info a green message to the console, support formatting
 #[macro_export]
 macro_rules! info {
     ($($arg:tt)*) => {
@@ -55,6 +57,7 @@ macro_rules! info {
     };
 }
 
+/// warn a yellow message to the console, support formatting
 #[macro_export]
 macro_rules! warn {
     ($($arg:tt)*) => {
@@ -62,6 +65,7 @@ macro_rules! warn {
     };
 }
 
+/// error a red message to the console, support formatting
 #[macro_export]
 macro_rules! error {
     ($($arg:tt)*) => {
@@ -69,6 +73,7 @@ macro_rules! error {
     };
 }
 
+/// fatal error a bright red message to the console, support formatting
 #[macro_export]
 macro_rules! fatal {
     ($($arg:tt)*) => {

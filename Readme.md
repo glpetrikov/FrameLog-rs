@@ -1,11 +1,11 @@
 # FrameLog-rs
 
-**Version 0.1.0** - Early development, API may change
+**Version 0.2.0** - Early development, API may change
 
-FrameLog is a lightweight library for outputting logs to the console, 
+FrameLog is a lightweight library for outputting logs to the console and file, 
 version on Rust
 
-## Version 0.1.0 alpha
+## Version 0.2.0 alpha
 
 
 ![Language](https://img.shields.io/badge/language-rust-blue.svg)
