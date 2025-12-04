@@ -1,6 +1,8 @@
 # FrameLog-rs
 
-FrameLog is a lightweight library for outputting logs to the console and file, 
+⚠️ **Version 0.1.0** - Early development, API may change
+
+FrameLog is a lightweight library for outputting logs to the console, 
 version on Rust
 
 ## Version 0.1.0 alpha
