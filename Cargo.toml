@@ -2,6 +2,13 @@
 name = "framelog-rs"
 version = "0.1.0"
 edition = "2024"
+authors = ["Gleb Petrikov <glpetrikov@gmail.com>"]
+description = "Lightweight logging library with colors and minimal dependencies"
+license = "MIT"
+repository = "https://github.com/glpetrikov/FrameLog-rs"
+keywords = ["logging", "log", "colors", "terminal"]
+categories = ["development-tools::debugging"]
+readme = "Readme.md"
 
 [dependencies]
-colored = "1.0"
+colored = "1.0.0"

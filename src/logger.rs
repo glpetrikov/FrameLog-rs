@@ -35,3 +35,52 @@ impl Logger {
         println!("{}", message.bright_red());
     }
 }
+
+#[macro_export]
+macro_rules! trace {
+    ($($arg:tt)*) => {
+        $crate::logger::Logger::trace(&format!($($arg)*));
+    };
+}
+
+#[macro_export]
+macro_rules! info {
+    ($($arg:tt)*) => {
+        $crate::logger::Logger::info(&format!($($arg)*));
+    };
+}
+
+#[macro_export]
+macro_rules! warn {
+    ($($arg:tt)*) => {
+        $crate::logger::Logger::warn(&format!($($arg)*));
+    };
+}
+
+#[macro_export]
+macro_rules! error {
+    ($($arg:tt)*) => {
+        $crate::logger::Logger::error(&format!($($arg)*));
+    };
+}
+
+#[macro_export]
+macro_rules! fatal {
+    ($($arg:tt)*) => {
+        $crate::logger::Logger::fatal(&format!($($arg)*));
+    };
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_logger() {
+        trace!("Trace Test");
+        info!("Info Test");
+        warn!("Warn Test");
+        error!("Error Test");
+        fatal!("Fatal Test");
+    }
+}
