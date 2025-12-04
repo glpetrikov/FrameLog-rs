@@ -19,18 +19,23 @@ use colored::*;
 
 pub struct Logger;
 impl Logger {
+    /// trace print a gray message to the console, does not support formatting
     pub fn trace(message: &str){
         println!("{}", message.bright_black());
     }
+    /// info print a green message to the console, does not support formatting
     pub fn info(message: &str){
         println!("{}", message.green());
     }
+    /// warn print a yellow message to the console, does not support formatting
     pub fn warn(message: &str){
         println!("{}", message.yellow());
     }
+    /// error print a yellow message to the console, does not support formatting
     pub fn error(message: &str){
         println!("{}", message.red());
     }
+    /// fatal error a yellow message to the console, does not support formatting
     pub fn fatal(message: &str){
         println!("{}", message.bright_red());
     }
