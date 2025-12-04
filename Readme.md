@@ -12,8 +12,8 @@ version on Rust
 ![License](https://img.shields.io/badge/license-MIT-greeen.svg)
 
 ![Status](https://img.shields.io/badge/status-Release-lightgrey.svg)
-![[Size](https://img.shields.io/badge/Size-75.0_KiB-blue.svg)]()
-![[C++](https://img.shields.io/badge/C%2B%2B-17%2B-blue.svg)]()
+
+[![Crates.io](https://img.shields.io/crates/v/framelog-rs.svg)](https://crates.io/crates/framelog-rs)
 
 \
 ![GitHub Repo stars](https://img.shields.io/github/stars/glpetrikov/FrameLog-rs?style=social)
