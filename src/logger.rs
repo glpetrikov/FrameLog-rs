@@ -145,20 +145,40 @@ macro_rules! fatalln {
 
 #[cfg(test)]
 mod tests {
+    use crate::logger;
+
     #[test]
-    fn test_loggget_prints() {
-        trace!("Trace Test");
-        info!("Info Test");
-        warn!("Warn Test");
-        error!("Error Test");
-        fatal!("Fatal Test");
+    fn test_logger_prints() {
+        logger::Logger::trace("Trace Test");
+        logger::Logger::info("Info Test");
+        logger::Logger::warn("Warn Test");
+        logger::Logger::error("Error Test");
+        logger::Logger::fatal("Fatal Test");
     }
     #[test]
-    fn test_loggget_line_prints() {
-        traceln!("Line Trace Test");
-        infoln!("Line Info Test");
-        warnln!("Line Warn Test");
-        errorln!("Line Error Test");
-        fatalln!("Line Fatal Test");
+    fn test_logger_line_prints() {
+        logger::Logger::traceln("Line Trace Test");
+        logger::Logger::infoln("Line Info Test");
+        logger::Logger::warnln("Line Warn Test");
+        logger::Logger::errorln("Line Error Test");
+        logger::Logger::fatalln("Line Fatal Test");
+    }
+    #[test]
+    fn test_logger_prints_macros() {
+        let a = 123;
+        trace!("Trace Test: {}", a);
+        info!("Info Test: {}", a);
+        warn!("Warn Test: {}", a);
+        error!("Error Test: {}", a);
+        fatal!("Fatal Test: {}", a);
+    }
+    #[test]
+    fn test_logger_line_prints_macros() {
+        let a = 123;
+        traceln!("Line Trace Test: {}", a);
+        infoln!("Line Info Test: {}", a);
+        warnln!("Line Warn Test: {}", a);
+        errorln!("Line Error Test: {}", a);
+        fatalln!("Line Fatal Test: {}", a);
     }
 }
