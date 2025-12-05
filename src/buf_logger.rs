@@ -62,6 +62,87 @@ impl crate::buf_logger::Logger {
     }
 }
 
+/// trace to existing Logger
+#[macro_export]
+macro_rules! buf_trace {
+    ($logger:expr, $($arg:tt)*) => {
+        $logger.trace(&format!($($arg)*));
+    };
+}
+
+/// info to existing Logger
+#[macro_export]
+macro_rules! buf_info {
+    ($logger:expr, $($arg:tt)*) => {
+        $logger.info(&format!($($arg)*));
+    };
+}
+
+/// warn to existing Logger
+#[macro_export]
+macro_rules! buf_warn {
+    ($logger:expr, $($arg:tt)*) => {
+        $logger.warn(&format!($($arg)*));
+    };
+}
+
+/// error to existing Logger
+#[macro_export]
+macro_rules! buf_error {
+    ($logger:expr, $($arg:tt)*) => {
+        $logger.error(&format!($($arg)*));
+    };
+}
+
+/// fatal to existing Logger
+#[macro_export]
+macro_rules! buf_fatal {
+    ($logger:expr, $($arg:tt)*) => {
+        $logger.fatal(&format!($($arg)*));
+    };
+}
+
+/// trace line to existing Logger
+#[macro_export]
+macro_rules! buf_traceln {
+    ($logger:expr, $($arg:tt)*) => {
+        $logger.traceln(&format!($($arg)*));
+    };
+}
+
+/// info line to existing Logger
+#[macro_export]
+macro_rules! buf_infoln {
+    ($logger:expr, $($arg:tt)*) => {
+        $logger.infoln(&format!($($arg)*));
+    };
+}
+
+/// warn line to existing Logger
+#[macro_export]
+macro_rules! buf_warnln {
+    ($logger:expr, $($arg:tt)*) => {
+        $logger.warnln(&format!($($arg)*));
+    };
+}
+
+/// error line to existing Logger
+#[macro_export]
+macro_rules! buf_errorln {
+    ($logger:expr, $($arg:tt)*) => {
+        $logger.errorln(&format!($($arg)*));
+    };
+}
+
+/// fatal line to existing Logger
+#[macro_export]
+macro_rules! buf_fatalln {
+    ($logger:expr, $($arg:tt)*) => {
+        $logger.fatalln(&format!($($arg)*));
+    };
+}
+
+
 #[cfg(test)]
 mod tests {
 
@@ -90,6 +171,36 @@ mod tests {
         log.warnln("Line Warn Test");
         log.errorln("Line Error Test");
         log.fatalln("Line Fatal Test");
+        log.flush()?;
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_logger_prints_macros() -> std::io::Result<()> {
+        use crate::buf_logger::Logger;
+        let mut log = Logger::new()?;
+
+        buf_trace!(log, "Trace Test");
+        buf_info!(log, "Info Test");
+        buf_warn!(log, "Warn Test");
+        buf_error!(log, "Error Test");
+        buf_fatal!(log, "Fatal Test");
+        log.flush()?;
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_logger_line_prints_macros() -> std::io::Result<()> {
+        use crate::buf_logger::Logger;
+        let mut log = Logger::new()?;
+
+        buf_traceln!(log, "Line Trace Test");
+        buf_infoln!(log, "Line Info Test");
+        buf_warnln!(log, "Line Warn Test");
+        buf_errorln!(log, "Line Error Test");
+        buf_fatalln!(log, "Line Fatal Test");
         log.flush()?;
 
         Ok(())

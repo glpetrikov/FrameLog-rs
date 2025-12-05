@@ -18,4 +18,4 @@
 pub mod logger;
 pub mod filehandler;
 pub mod buffer;
-mod buf_logger;
+pub mod buf_logger;
