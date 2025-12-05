@@ -1,4 +1,4 @@
-use std::fs::{self, File};
+use std::fs::{self, File, OpenOptions};
 use std::io::{self, Write, Read, Seek, SeekFrom, BufRead, BufReader};
 
 pub struct FileHandler {
@@ -9,7 +9,10 @@ pub struct FileHandler {
 impl FileHandler {
     /// accepts the name of the file where to log
     pub fn new(file_name: &str) -> io::Result<Self> {
-        let file = File::create(file_name)?;
+        let file = OpenOptions::new()
+            .create(true)
+            .append(true)
+            .open(file_name)?;
         Ok(Self { file, file_name: file_name.to_string(),})
     }
 
@@ -21,6 +24,13 @@ impl FileHandler {
     /// writes data to the end of the file with line termination
     pub fn writeln(&mut self, message: &str) -> io::Result<()> {
         writeln!(self.file, "{}", message)?;
+        Ok(())
+    }
+
+    /// Guaranteed to write to disk, useful for fatal errors, attention to flush everything in the buffer
+    pub fn writeln_sync(&mut self, message: &str) -> io::Result<()> {
+        writeln!(self.file, "{}", message)?;
+        self.file.flush()?;
         Ok(())
     }
 
@@ -56,14 +66,26 @@ impl FileHandler {
     /// opens a new file
     pub fn set_file(&mut self, file_name: &str) -> io::Result<()> {
         self.file.flush()?;
-        self.file = File::open(file_name)?;
+        self.file = OpenOptions::new()
+            .create(true)
+            .append(true)
+            .open(file_name)?;
+        self.file_name = file_name.to_string();
         Ok(())
     }
     /// close the current file
     pub fn close_file(&mut self) -> io::Result<()> {
         self.file.flush()?;
+        
+        let file = std::mem::replace(
+            &mut self.file,
+            OpenOptions::new().read(true).open(&self.file_name)?,
+        );
+
+        drop(file);
         Ok(())
     }
+
 
     /// delete current file
     pub fn delete_current(&self) -> io::Result<()> {
