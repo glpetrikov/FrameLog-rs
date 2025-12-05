@@ -1,13 +1,13 @@
 # FrameLog-rs
 
-**Version 0.3.1** - Early development, API may change
+**Version 0.3.2** - Early development, API may change
 
 FrameLog is a lightweight library for outputting logs to the console and file, 
 version on Rust
 
 C++ FrameLog: https://github.com/glpetrikov/FrameLog
 
-## Version 0.3.1 Beta
+## Version 0.3.2 Beta
 
 ![Language](https://img.shields.io/badge/language-rust-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-greeen.svg)
@@ -65,7 +65,7 @@ cargo test
 ## Installations
 ```toml
 [dependencies]
-framelog-rs = "0.3.1"
+framelog-rs = "0.3.2"
 ```
 
 ## Building
