@@ -1,11 +1,11 @@
 # FrameLog-rs
 
-**Version 0.2.1** - Early development, API may change
+**Version 0.2.2** - Early development, API may change
 
 FrameLog is a lightweight library for outputting logs to the console and file, 
 version on Rust
 
-## Version 0.2.1 alpha
+## Version 0.2.2 alpha
 
 
 ![Language](https://img.shields.io/badge/language-rust-blue.svg)
@@ -23,12 +23,12 @@ version on Rust
 ## Features
 - **Colorful console output** - ANSI colors for different log levels
 - **File logging** - Write logs to files with append mode
-- **Lightweight** - Only 4.4 KiB compiled size
+- **Lightweight** - Only ~4-7 KiB compiled size
 - **Thread-safe** - `Send` + `Sync` implementations
 - **Flexible file operations** - Read, write, delete log files
 
 ## Dependencies
-- Standard Rust library (`std`)
+- Standard Rust library
 
 ## License
 FrameLog-rs is distributed under the **MIT License**.  
@@ -58,13 +58,13 @@ FrameLog is **lightweight**:
 ```bash
 git clone https://github.com/glpetrikov/FrameLog-rs
 cd FrameLog-rs
-cargo run
+cargo test 
 ```
 
-## Installation
+## Installations
 ```toml
 [dependencies]
-framelog-rs = "0.2.1"
+framelog-rs = "0.2.2"
 ```
 
 ## Building

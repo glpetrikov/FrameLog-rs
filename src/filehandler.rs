@@ -1,3 +1,20 @@
+/* =================================================
+ * FrameLog-rs, MIT - License
+ * ─────────────────────────────────────────────────
+ * FrameLog-rs
+ * FileName
+ * ─────────────────────────────────────────────────
+ * Updated on:
+ * 2025.12.5
+ * ─────────────────────────────────────────────────
+ * Made by:
+ * Gleb Petrikov
+ * ─────────────────────────────────────────────────
+ * Description:
+ * file handler
+ * =================================================
+ */
+
 use std::fs::{self, File, OpenOptions};
 use std::io::{self, Write, Read, Seek, SeekFrom, BufRead, BufReader};
 
@@ -76,7 +93,7 @@ impl FileHandler {
     /// close the current file
     pub fn close_file(&mut self) -> io::Result<()> {
         self.file.flush()?;
-        
+
         let file = std::mem::replace(
             &mut self.file,
             OpenOptions::new().read(true).open(&self.file_name)?,
