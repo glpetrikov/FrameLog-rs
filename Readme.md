@@ -77,7 +77,7 @@ cargo build
 ```rust
 use framelog_rs::*;
 
-fn main() -> std::io::Result {
+fn main() -> std::io::Result<()> {
     // Console logging
     info!("Application started");
     warn!("Memory usage: {}%", 85);
