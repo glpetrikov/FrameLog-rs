@@ -26,6 +26,13 @@ impl Buffer {
         Ok( Self{ data: String::new() } )
     }
 
+    /// add data in buffer
+    /// Example:
+    /// ```
+    /// let mut buf = framelog_rs::buffer::Buffer::new().unwrap();
+    /// buf.add("Hello, World!").unwrap();
+    /// println!("{}", buf.get().unwrap());
+    /// ```
     pub fn add(&mut self, message: &str) -> io::Result<()> {
         self.data.push_str(message);
         Ok(())

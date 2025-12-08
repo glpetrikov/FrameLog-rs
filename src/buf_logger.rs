@@ -37,45 +37,45 @@ impl crate::buf_logger::Logger {
 
     /// trace print a gray message to the Logger Buffer, does not support formatting
     pub fn trace(&mut self, message: &str){
-        self.buf.add(&(message.bright_black().to_string() +"\n"));
+        let _ = self.buf.add(&(message.bright_black().to_string() +"\n"));
     }
     /// info print a green message to the Logger Buffer, does not support formatting
     pub fn info(&mut self, message: &str){
-        self.buf.add(&(message.green().to_string() + "\n"));
+        let _ = self.buf.add(&(message.green().to_string() + "\n"));
     }
     /// warn print a yellow message to the Logger Buffer, does not support formatting
     pub fn warn(&mut self, message: &str){
-        self.buf.add(&(message.yellow().to_string() + "\n"));
+        let _ = self.buf.add(&(message.yellow().to_string() + "\n"));
     }
     /// error print a red message to the Logger Buffer, does not support formatting
     pub fn error(&mut self, message: &str){
-        self.buf.add(&(message.red().to_string() + "\n"));
+        let _ = self.buf.add(&(message.red().to_string() + "\n"));
     }
     /// fatal error a bright red message to the Logger Buffer, does not support formatting
     pub fn fatal(&mut self, message: &str){
-        self.buf.add(&(message.bright_red().to_string() + "\n"));
+        let _ = self.buf.add(&(message.bright_red().to_string() + "\n"));
     }
 
 
     /// trace line print a gray message to the Logger Buffer, does not support formatting
     pub fn traceln(&mut self, message: &str){
-        self.buf.add(&(message.bright_black().to_string() + "\n"));
+        let _ = self.buf.add(&(message.bright_black().to_string() + "\n"));
     }
     /// info line print a green message to the Logger Buffer, does not support formatting
     pub fn infoln(&mut self, message: &str){
-        self.buf.add( &(message.green().to_string() + "\n"));
+        let _ = self.buf.add( &(message.green().to_string() + "\n"));
     }
     /// warn line print a yellow message to the Logger Buffer, does not support formatting
     pub fn warnln(&mut self, message: &str){
-        self.buf.add( &(message.yellow().to_string() + "\n"));
+        let _ = self.buf.add( &(message.yellow().to_string() + "\n"));
     }
     /// error line print a red message to the Logger Buffer, does not support formatting
     pub fn errorln(&mut self, message: &str){
-        self.buf.add(&(message.red().to_string() + "\n"));
+        let _ = self.buf.add(&(message.red().to_string() + "\n"));
     }
     /// fatal line error a bright red message to the Logger Buffer, does not support formatting
     pub fn fatalln(&mut self, message: &str){
-        self.buf.add(&(message.bright_red().to_string() + "\n"));
+        let _ = self.buf.add(&(message.bright_red().to_string() + "\n"));
     }
 }
 

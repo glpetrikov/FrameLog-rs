@@ -11,4 +11,4 @@ categories = ["development-tools::debugging"]
 readme = "Readme.md"
 
 [dependencies]
-colored = "1.0.0"
+colored = "3.0.0"
